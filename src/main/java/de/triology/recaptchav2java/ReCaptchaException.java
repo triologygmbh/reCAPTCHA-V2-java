@@ -29,7 +29,7 @@ package de.triology.recaptchav2java;
 @SuppressWarnings("WeakerAccess") // This is the public API!
 public class ReCaptchaException extends RuntimeException {
 
-    ReCaptchaException(String message, Throwable cause) {
+    public ReCaptchaException(String message, Throwable cause) {
         super(message, cause);
     }
 }

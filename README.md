@@ -1,8 +1,9 @@
 # reCAPTCHA-V2-java
- [![Build Status](https://travis-ci.org/triologygmbh/reCAPTCHA-V2-java.svg?branch=master)](https://travis-ci.org//triologygmbh/reCAPTCHA-V2-java)
+[![Build Status](https://travis-ci.org/triologygmbh/reCAPTCHA-V2-java.svg?branch=master)](https://travis-ci.org//triologygmbh/reCAPTCHA-V2-java)
 [![JitPack](https://jitpack.io/v//triologygmbh/reCAPTCHA-V2-java.svg)](https://jitpack.io/#triologygmbh/reCAPTCHA-V2-java)
 
-Java Bindings for reCAPTCHA V2. See [Verifying the user's response  |  reCAPTCHA  |  Google Developers](https://developers.google.com/recaptcha/docs/verify).
+Lightweight Java Bindings for reCAPTCHA V2. See [Verifying the user's response  |  reCAPTCHA  |  Google Developers](https://developers.google.com/recaptcha/docs/verify).  
+Why lightweight? Provides a minimalist API and imposes no transitive dependencies on its user, except for [SLF4J](https://www.slf4j.org/).
 
 ## Prerequisites
 

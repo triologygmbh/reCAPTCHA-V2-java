@@ -27,12 +27,12 @@ class ReCaptchaTests {
 
     private static final String BODY_TEMPLATE = "{\n"
         + " \"success\": %s,\n"                             // true|false
-        + " \"challenge_ts\": 2017-06-26T09:31:42+0200,\n"  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
-        + " \"hostname\": localhost\n"                      // the hostname of the site where the reCAPTCHA was solved
+        + " \"challenge_ts\": \"2017-06-26T09:31:42+0200\",\n"  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+        + " \"hostname\": \"localhost\""                      // the hostname of the site where the reCAPTCHA was solved
         + "%s"                                              // optional error codes: ,"error-codes": [...]
         + "}";
 
-    private static final String BODY_ERROR_CODES_TEMPLATE = ",\"error-codes\": [%s]";
+    private static final String BODY_ERROR_CODES_TEMPLATE = ",\n\"error-codes\": [%s]";
 
     private ReCaptchaTests() {
     }
@@ -43,6 +43,6 @@ class ReCaptchaTests {
 
     static String createBodyFailure() {
         return String.format(BODY_TEMPLATE, "false",
-            String.format(BODY_ERROR_CODES_TEMPLATE, "invalid-input-secret, invalid-input-response"));
+            String.format(BODY_ERROR_CODES_TEMPLATE, "\"invalid-input-secret\", \"invalid-input-response\""));
     }
 }

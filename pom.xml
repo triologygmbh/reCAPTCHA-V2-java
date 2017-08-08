@@ -36,9 +36,9 @@
     <url>https://github.com/triologygmbh/recaptchav2-java</url>
 
     <scm>
-        <connection>scm:git:https://github.com/triologygmbh/recaptchav2-java</connection>
-        <developerConnection>scm:git:https://github.com/triologygmbh/recaptchav2-java</developerConnection>
-        <url>https://github.com/triologygmbh/recaptchav2-java.git</url>
+        <connection>scm:git:https://github.com/triologygmbh/reCAPTCHA-V2-java</connection>
+        <developerConnection>scm:git:https://github.com/triologygmbh/reCAPTCHA-V2-java</developerConnection>
+        <url>https://github.com/triologygmbh/reCAPTCHA-V2-java.git</url>
         <tag>HEAD</tag>
     </scm>
 

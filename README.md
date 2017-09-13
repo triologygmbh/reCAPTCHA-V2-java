@@ -1,5 +1,5 @@
 # reCAPTCHA-V2-java
-[![Build Status](https://travis-ci.org/triologygmbh/reCAPTCHA-V2-java.svg?branch=master)](https://travis-ci.org//triologygmbh/reCAPTCHA-V2-java)
+[![Build Status](https://opensource.triology.de/jenkins/buildStatus/icon?job=triologygmbh-github/reCAPTCHA-V2-java/master)](https://opensource.triology.de/jenkins/blue/organizations/jenkins/triologygmbh-github%2FreCAPTCHA-V2-java/branches)
 [![JitPack](https://jitpack.io/v//triologygmbh/reCAPTCHA-V2-java.svg)](https://jitpack.io/#triologygmbh/reCAPTCHA-V2-java)
 
 Lightweight Java Bindings for reCAPTCHA V2. See [Verifying the user's response  |  reCAPTCHA  |  Google Developers](https://developers.google.com/recaptcha/docs/verify).  

@@ -34,6 +34,7 @@
 
     <name>recaptchav2-java</name>
     <description>Java Bindings for Google's reCAPTCHA V2.</description>
+    <url>https://github.com/triologygmbh/reCAPTCHA-V2-java</url>
 
     <licenses>
         <license>

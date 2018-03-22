@@ -1,6 +1,8 @@
 # reCAPTCHA-V2-java
-[![Build Status](https://opensource.triology.de/jenkins/buildStatus/icon?job=triologygmbh-github/reCAPTCHA-V2-java/master)](https://opensource.triology.de/jenkins/blue/organizations/jenkins/triologygmbh-github%2FreCAPTCHA-V2-java/branches)
-[![JitPack](https://jitpack.io/v//triologygmbh/reCAPTCHA-V2-java.svg)](https://jitpack.io/#triologygmbh/reCAPTCHA-V2-java)
+[![Build Status](https://opensource.triology.de/jenkins/buildStatus/icon?job=triologygmbh-github/reCAPTCHA-V2-java/develop)](https://opensource.triology.de/jenkins/blue/organizations/jenkins/triologygmbh-github%2FreCAPTCHA-V2-java/branches/)
+[![Quality Gates](https://sonarcloud.io/api/badges/gate?key=de.triology.recaptchav2-java%3Arecaptchav2-java)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
+[![Coverage](https://sonarcloud.io/api/badges/measure?key=de.triology.recaptchav2-java%3Arecaptchav2-java&metric=coverage)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
+[![Technical Debt](https://sonarcloud.io/api/badges/measure?key=de.triology.recaptchav2-java%3Arecaptchav2-java&metric=sqale_debt_ratio)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
 
 Lightweight Java Bindings for reCAPTCHA V2. See [Verifying the user's response  |  reCAPTCHA  |  Google Developers](https://developers.google.com/recaptcha/docs/verify).  
 Why lightweight? Provides a minimalist API and imposes no transitive dependencies on its user, except for [SLF4J](https://www.slf4j.org/).
@@ -13,27 +15,27 @@ Why lightweight? Provides a minimalist API and imposes no transitive dependencie
 
 ## Usage 
 
-Get it via [JitPack](https://jitpack.io/#triologygmbh/reCAPTCHA-V2-java), for example using maven.
+Add the [latest stable version](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22de.triology.recaptchav2-java%22%20AND%20a%3A%22recaptchav2-java%22) to the dependency management tool of your choice.
 
-Add the following maven repository to your POM.xml
-
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
+```XML
+<dependency>
+    <groupId>de.triology.recaptchav2-java</groupId>
+    <artifactId>recaptchav2-java</artifactId>
+    <version>1.0.2</version>
+</dependency>
 ```
 
-Then add the actual dependency
+[![Maven Central](https://img.shields.io/maven-central/v/de.triology.recaptchav2-java/recaptchav2-java.svg)](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22de.triology.recaptchav2-java%22%20AND%20a%3A%22recaptchav2-java%22)
 
+You can also get snapshot versions from our [snapshot repository](https://oss.sonatype.org/content/repositories/snapshots/de/triology/recaptchav2-java/recaptchav2-java/) (for the most recent commit on develop branch).
+To do so, add the following repo to your `pom.xml` or `settings.xml`:
 ```xml
-<dependency>
-    <groupId>com.github.triologygmbh</groupId>
-    <artifactId>reCAPTCHA-V2-java</artifactId>
-    <version>1.0.0</version>
-</dependency>
+<repository>
+    <id>snapshots-repo</id>
+    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    <releases><enabled>false</enabled></releases>
+    <snapshots><enabled>true</enabled></snapshots>
+</repository>
 ```
 
 On your server:

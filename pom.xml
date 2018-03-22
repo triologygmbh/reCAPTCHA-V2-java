@@ -33,14 +33,49 @@
     <packaging>jar</packaging>
 
     <name>recaptchav2-java</name>
-    <url>https://github.com/triologygmbh/recaptchav2-java</url>
+    <description>Java Bindings for Google's reCAPTCHA V2.</description>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/triologygmbh/eCAPTCHA-V2-java/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <inceptionYear>2017</inceptionYear>
+
+    <organization>
+        <name>TRIOLOGY GmbH</name>
+        <url>https://www.triology.de/</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <name>Johannes Schnatterer</name>
+            <email>johannes.schnatterer@triology.de</email>
+            <organization>TRIOLOGY GmbH</organization>
+            <organizationUrl>https://www.triology.de/</organizationUrl>
+            <timezone>Europe/Berlin</timezone>
+        </developer>
+    </developers>
 
     <scm>
         <connection>scm:git:https://github.com/triologygmbh/reCAPTCHA-V2-java</connection>
         <developerConnection>scm:git:https://github.com/triologygmbh/reCAPTCHA-V2-java</developerConnection>
         <url>https://github.com/triologygmbh/reCAPTCHA-V2-java.git</url>
-        <tag>1.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -97,7 +132,11 @@
                 <version>3.0</version>
                 <configuration>
                     <header>LICENSE</header>
-                    <excludes><exclude>**/VisibleForTesting.java</exclude></excludes>
+                    <excludes>
+                        <!-- Any local maven repo (e.g. on Jenkins) -->
+                        <exclude>.m2/**</exclude>
+                        <exclude>**/VisibleForTesting.java</exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>
@@ -143,7 +182,7 @@
             <groupId>com.github.tomakehurst</groupId>
             <artifactId>wiremock</artifactId>
             <version>2.6.0</version>
-	    <scope>test</scope>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -153,4 +192,44 @@
         </dependency>
 
     </dependencies>
+
+    <profiles>
+        <profile>
+            <!-- profile is active on every jenkins build -->
+            <id>jenkins</id>
+
+            <activation>
+                <property>
+                    <name>env.BUILD_URL</name>
+                </property>
+            </activation>
+
+            <build>
+                <plugins>
+
+                    <!-- prepare jacoco agent for code coverage in sonar -->
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>0.8.0</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>agent-for-it</id>
+                                <goals>
+                                    <goal>prepare-agent-integration</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

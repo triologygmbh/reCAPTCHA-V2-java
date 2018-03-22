@@ -38,18 +38,6 @@ node {
             mvn 'test'
         }
 
-        stage('Statical Code Analysis') {
-            def sonarQube = new SonarQube(this, 'sonarcloud.io')
-            sonarQube.updateAnalysisResultOfPullRequestsToGitHub('sonarqube-gh')
-            sonarQube.isUsingBranchPlugin = true
-
-            sonarQube.analyzeWith(mvn)
-
-            if (!sonarQube.waitForQualityGateWebhookToBeCalled()) {
-                currentBuild.result ='UNSTABLE'
-            }
-        }
-
         stage('Deploy') {
             if (preconditionsForDeploymentFulfilled()) {
 

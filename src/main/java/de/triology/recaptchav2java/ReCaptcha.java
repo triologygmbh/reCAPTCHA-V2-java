@@ -23,7 +23,7 @@
  */
 package de.triology.recaptchav2java;
 
-import com.google.common.annotations.VisibleForTesting;
+import de.triology.recaptchav2java.com.google.common.annotations.VisibleForTesting;
 
 /**
  * Java abstraction for verifying a response token generate by Google's reCAPTCHA V2 client widget on server side.

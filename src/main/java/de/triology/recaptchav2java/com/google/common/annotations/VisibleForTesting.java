@@ -11,7 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.google.common.annotations;
+package de.triology.recaptchav2java.com.google.common.annotations;
 
 /**
  * Annotates a program element that exists, or is more widely visible than otherwise necessary, only

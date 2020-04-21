@@ -4,16 +4,16 @@
 [![Coverage](https://sonarcloud.io/api/badges/measure?key=de.triology.recaptchav2-java%3Arecaptchav2-java&metric=coverage)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
 [![Technical Debt](https://sonarcloud.io/api/badges/measure?key=de.triology.recaptchav2-java%3Arecaptchav2-java&metric=sqale_debt_ratio)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
 
-Lightweight Java Bindings for reCAPTCHA V2. See [Verifying the user's response  |  reCAPTCHA  |  Google Developers](https://developers.google.com/recaptcha/docs/verify).  
+Lightweight Java Bindings for reCAPTCHA V2. See [Verifying the user's response  |  reCAPTCHA  |  Google Developers](https://developers.google.com/recaptcha/docs/verify).
 Why lightweight? Provides a minimalist API and imposes no transitive dependencies on its user, except for [SLF4J](https://www.slf4j.org/).
 
 ## Prerequisites
 
-* Get a public and a secret API key [from Google](http://www.google.com/recaptcha/admin).   
+* Get a public and a secret API key [from Google](http://www.google.com/recaptcha/admin).
 * Set up your client side to display the reCAPTCHA V2 widget, **containing the public API key**, as described [here](https://developers.google.com/recaptcha/docs/display).
 * Send the response token to your server.
 
-## Usage 
+## Usage
 
 Add the [latest stable version](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22de.triology.recaptchav2-java%22%20AND%20a%3A%22recaptchav2-java%22) to the dependency management tool of your choice.
 
@@ -39,7 +39,7 @@ To do so, add the following repo to your `pom.xml` or `settings.xml`:
 ```
 
 On your server:
-* Create a new instance of `ReCaptcha`, 
+* Create a new instance of `ReCaptcha`,
 * passing the reCAPTCHA **private API key** (the one beloging to the public key used in your client code to generate the response).
 * Then validate the token sent by the client, you'll receive a boolean response.
 
@@ -52,7 +52,14 @@ String secret = "sMSd8L8jlFrKGHdtbXePOphPfhJO_oA4A0sfvw0i";
 new ReCaptcha(secret).isValid(response);
 ````
 
+For trying out, see [TestServer](src/test/java/de/triology/recaptchav2java/TestServer.java).
+Run it with these env vars
+
+* SECRET
+* SITE_KEY
+* PORT
+
 ### Error Handling
-In case there are not technical problems `Recaptcha.isValid()` always returns a boolean. Otherwise a `ReCaptchaException` is thrown.  
+In case there are not technical problems `Recaptcha.isValid()` always returns a boolean. Otherwise a `ReCaptchaException` is thrown.
 If you need insight into the underlying HTTP traffic you best set the log level of all loggers `de.triology.recaptchav2java` to `TRACE` using your favorite [SLF4J](https://www.slf4j.org/) implementation.
 

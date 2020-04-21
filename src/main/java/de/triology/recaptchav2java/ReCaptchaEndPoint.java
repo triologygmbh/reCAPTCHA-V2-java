@@ -35,7 +35,7 @@ class ReCaptchaEndPoint {
     private static final Logger LOG = LoggerFactory.getLogger(ReCaptchaEndPoint.class);
 
     @VisibleForTesting
-    static final String URL_PROTOCOL_HOST = "https://www.google.com";
+    static final String URL_PROTOCOL_HOST = "https://www.recaptcha.net";
     @VisibleForTesting
     static final String URL_QUERY_PART = "/recaptcha/api/siteverify";
     private static final String URL_ABSOLUTE = URL_PROTOCOL_HOST + URL_QUERY_PART;

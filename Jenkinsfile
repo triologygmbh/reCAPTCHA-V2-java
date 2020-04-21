@@ -1,5 +1,5 @@
 #!groovy
-@Library('github.com/cloudogu/ces-build-lib@8dd2371')
+@Library('github.com/cloudogu/ces-build-lib@1.36.0')
 import com.cloudogu.ces.cesbuildlib.*
 
 node {
@@ -35,18 +35,21 @@ node {
         }
 
         stage('Unit Test') {
-            mvn 'test'
+            mvn 'test -Dmaven.test.failure.ignore=true'
+            // Archive test results. Makes build unstable on failed tests.
+            junit allowEmptyResults: true,
+                testResults: '**/target/surefire-reports/TEST-*.xml, **/target/failsafe-reports/*.xml'
         }
 
         stage('Statical Code Analysis') {
-            def sonarQube = new SonarQube(this, 'sonarcloud.io')
-            sonarQube.updateAnalysisResultOfPullRequestsToGitHub('sonarqube-gh')
-            sonarQube.isUsingBranchPlugin = true
+            generateCoverageReportForSonarQube(mvn)
+
+            def sonarQube = new SonarCloud(this, [sonarQubeEnv: 'sonarcloud.io', sonarOrganization: 'triologygmbh'])
 
             sonarQube.analyzeWith(mvn)
 
             if (!sonarQube.waitForQualityGateWebhookToBeCalled()) {
-                currentBuild.result ='UNSTABLE'
+                unstable("Pipeline unstable due to SonarCloud quality gate failure")
             }
         }
 
@@ -63,16 +66,13 @@ node {
         }
     }
 
-    // Archive Unit and integration test results, if any
-    junit allowEmptyResults: true,
-            testResults: '**/target/surefire-reports/TEST-*.xml, **/target/failsafe-reports/*.xml'
-
     mailIfStatusChanged(git.commitAuthorEmail)
 }
 
 boolean preconditionsForDeploymentFulfilled() {
     if (isBuildSuccessful() &&
         !isPullRequest() &&
+        isBuildSuccessful() &&
         shouldBranchBeDeployed()) {
         return true
     } else {
@@ -100,4 +100,8 @@ void initMaven(Maven mvn) {
         mvn.additionalArgs += " -DperformRelease "
         currentBuild.description = mvn.getVersion()
     }
+}
+
+static void generateCoverageReportForSonarQube(def mvn) {
+    mvn 'org.jacoco:jacoco-maven-plugin:0.8.5:report'
 }

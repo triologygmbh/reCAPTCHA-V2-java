@@ -1,9 +1,8 @@
 # reCAPTCHA-V2-java
 [![Build Status](https://opensource.triology.de/jenkins/buildStatus/icon?job=triologygmbh-github/reCAPTCHA-V2-java/develop)](https://opensource.triology.de/jenkins/blue/organizations/jenkins/triologygmbh-github%2FreCAPTCHA-V2-java/branches/)
-[![Quality Gates](https://sonarcloud.io/api/badges/gate?key=de.triology.recaptchav2-java%3Arecaptchav2-java)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
-[![Coverage](https://sonarcloud.io/api/badges/measure?key=de.triology.recaptchav2-java%3Arecaptchav2-java&metric=coverage)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
-[![Technical Debt](https://sonarcloud.io/api/badges/measure?key=de.triology.recaptchav2-java%3Arecaptchav2-java&metric=sqale_debt_ratio)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
-
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=de.triology.recaptchav2-java%3Arecaptchav2-java&metric=alert_status)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=de.triology.recaptchav2-java%3Arecaptchav2-java&metric=coverage)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=de.triology.recaptchav2-java%3Arecaptchav2-java&metric=sqale_index)](https://sonarcloud.io/dashboard?id=de.triology.recaptchav2-java%3Arecaptchav2-java)
 Lightweight Java Bindings for reCAPTCHA V2. See [Verifying the user's response  |  reCAPTCHA  |  Google Developers](https://developers.google.com/recaptcha/docs/verify).
 Why lightweight? Provides a minimalist API and imposes no transitive dependencies on its user, except for [SLF4J](https://www.slf4j.org/).
 
